@@ -1915,7 +1915,131 @@
         }
 
         /* ============================================
-   RESPONSIVE
+   MOBILE BOTTOM NAVIGATION
+   ============================================ */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1001;
+            background: rgba(12, 12, 12, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--concrete-line-strong);
+            padding: 0;
+        }
+
+        .mobile-nav__inner {
+            display: flex;
+            align-items: stretch;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            gap: 0;
+        }
+
+        .mobile-nav__inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mobile-nav__dot {
+            flex: 0 0 auto;
+            background: none;
+            border: none;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav__dot::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: width 0.3s ease;
+        }
+
+        .mobile-nav__dot.active::before {
+            width: 100%;
+        }
+
+        .mobile-nav__dot-pip {
+            width: 3px;
+            height: 3px;
+            background: var(--gray-400);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav__dot.active .mobile-nav__dot-pip {
+            background: var(--orange);
+            box-shadow: 0 0 8px var(--orange-glow);
+            width: 5px;
+            height: 5px;
+        }
+
+        .mobile-nav__dot-label {
+            font-family: var(--font-mono);
+            font-size: 7px;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav__dot.active .mobile-nav__dot-label {
+            color: var(--orange);
+        }
+
+        /* ============================================
+   MOBILE FLOATING CTA
+   ============================================ */
+        .mobile-cta-float {
+            display: none;
+            position: fixed;
+            bottom: 68px;
+            left: 16px;
+            right: 16px;
+            z-index: 1000;
+            background: var(--orange);
+            color: var(--bg);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 24px rgba(255, 107, 43, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .mobile-cta-float.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-cta-float:active {
+            transform: scale(0.97);
+        }
+
+        /* ============================================
+   RESPONSIVE — 1200px (TABLET LANDSCAPE)
    ============================================ */
         @media (max-width: 1200px) {
             .modulos__grid {
@@ -1923,6 +2047,9 @@
             }
         }
 
+        /* ============================================
+   RESPONSIVE — 992px (TABLET)
+   ============================================ */
         @media (max-width: 992px) {
             .capa__layout {
                 grid-template-columns: 1fr;
@@ -2000,63 +2127,496 @@
             }
         }
 
+        /* ============================================
+   RESPONSIVE — 768px (MOBILE)
+   ============================================ */
         @media (max-width: 768px) {
+
+            /* Disable scroll snap on mobile for smoother experience */
+            html {
+                scroll-snap-type: none;
+            }
+
+            .section {
+                scroll-snap-align: none;
+                min-height: auto;
+            }
+
+            /* Space for bottom nav */
+            body {
+                padding-bottom: 56px;
+            }
+
             .section__content {
-                padding: 60px 20px;
+                padding: 60px 20px 72px;
             }
 
             .section::before,
             .section::after {
-                width: 24px;
-                height: 24px;
+                width: 20px;
+                height: 20px;
+                opacity: 0.1;
             }
 
+            /* Hide desktop nav, show mobile nav */
+            .nav-bar {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .mobile-cta-float {
+                display: block;
+            }
+
+            /* Counter repositioned for mobile */
+            .counter {
+                font-size: 9px;
+                bottom: 64px;
+                left: 12px;
+            }
+
+            /* Scroll hint */
+            .scroll-hint {
+                bottom: 68px;
+            }
+
+            /* Grid overlay off on mobile */
+            .grid-overlay {
+                display: none;
+            }
+
+            /* ---- BACKGROUNDS: remove zoom on mobile ---- */
+            .section__bg img,
+            .section__bg video {
+                transform: none;
+            }
+
+            .section.in-view .section__bg img {
+                transform: none;
+            }
+
+            /* ---- BACKGROUND VIDEO shift left 2.3in ---- */
+            .section--hero .section__bg video {
+                object-position: 58% 25%;
+            }
+
+            /* ---- CAPA ---- */
+            .capa__title {
+                font-size: clamp(36px, 10vw, 52px);
+                margin-bottom: 20px;
+            }
+
+            .capa__stamp {
+                font-size: 8px;
+                margin-bottom: 24px;
+            }
+
+            .capa__sub {
+                font-size: 14px;
+                margin-bottom: 24px;
+                padding-left: 16px;
+            }
+
+            .capa__bio {
+                padding: 12px 14px;
+                margin-bottom: 28px;
+                flex-wrap: nowrap;
+            }
+
+            .capa__avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .capa__bio-name {
+                font-size: 12px;
+            }
+
+            .capa__bio-text {
+                font-size: 11px;
+            }
+
+            .capa__pills {
+                gap: 6px;
+            }
+
+            .pill {
+                font-size: 8px;
+                padding: 6px 10px;
+            }
+
+            /* Logo on capa */
+            .capa__layout h1 img {
+                max-width: 280px !important;
+            }
+
+            /* ---- DORES ---- */
+            .dores__header {
+                margin-bottom: 32px;
+            }
+
+            .dores__grid {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .dor-card {
+                padding: 24px 20px;
+            }
+
+            .dor-card__title {
+                font-size: 13px;
+            }
+
+            .dor-card__desc {
+                font-size: 12px;
+            }
+
+            .dores__stat {
+                font-size: 9px;
+                padding: 8px 14px;
+            }
+
+            /* ---- SOLUÇÃO ---- */
+            .solucao__pilares {
+                margin-top: 28px;
+            }
+
+            .pilar {
+                padding: 18px;
+                gap: 14px;
+            }
+
+            .pilar__icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .pilar__label {
+                font-size: 9px;
+            }
+
+            .pilar__desc {
+                font-size: 12px;
+            }
+
+            /* ---- MÓDULOS ---- */
             .modulos__grid {
                 grid-template-columns: 1fr;
+                gap: 0;
+                margin-top: 32px;
             }
 
+            .modulo-card {
+                padding: 24px 18px;
+            }
+
+            .modulo-card__number {
+                font-size: 36px;
+            }
+
+            .modulo-card__title {
+                font-size: 13px;
+            }
+
+            .modulo-card__desc {
+                font-size: 11px;
+            }
+
+            /* ---- CASES ---- */
+            .cases__grid {
+                margin-top: 32px;
+            }
+
+            .case-card__body {
+                padding: 20px 18px;
+            }
+
+            .case-card__metric {
+                font-size: 36px;
+            }
+
+            .case-card__photo {
+                height: 120px;
+            }
+
+            /* ---- JORNADA ---- */
             .jornada__timeline {
                 grid-template-columns: 1fr;
+                margin-top: 36px;
             }
 
+            .jornada-step {
+                padding: 28px 20px;
+            }
+
+            .jornada-step__number {
+                font-size: 36px;
+            }
+
+            /* ---- ENTREGÁVEIS ---- */
             .entregas__grid {
                 grid-template-columns: 1fr;
+                margin-top: 32px;
+            }
+
+            .entrega-card {
+                padding: 22px 18px;
             }
 
             .entrega-card:last-child {
                 grid-column: span 1;
             }
 
-            .dores__grid {
-                grid-template-columns: 1fr;
+            .entrega-card__title {
+                font-size: 13px;
             }
 
-            .nav-bar {
-                display: none;
+            .entrega-card__desc {
+                font-size: 11px;
             }
 
-            .counter {
+            /* ---- ANTES / DEPOIS ---- */
+            .antes__grid {
+                margin-top: 32px;
+            }
+
+            .antes__item {
+                padding: 12px 18px;
+                gap: 10px;
+            }
+
+            .antes__label--bad,
+            .antes__label--good {
+                font-size: 12px;
+            }
+
+            .antes__col-header {
                 font-size: 9px;
+                padding: 12px 18px;
+            }
+
+            /* ---- IMPACTO ---- */
+            .impacto__content {
+                min-height: 60vh;
+            }
+
+            .impacto__quote {
+                font-size: clamp(24px, 7vw, 48px);
+                margin-bottom: 32px;
+            }
+
+            .impacto__metrics {
+                flex-direction: row;
+                width: 100%;
+                border: 1px solid var(--concrete-line-strong);
+            }
+
+            .impacto__metric {
+                flex: 1;
+                padding: 16px 12px;
+                text-align: center;
+                border-right: 1px solid var(--concrete-line);
+                border-bottom: none;
+            }
+
+            .impacto__metric:last-child {
+                border-right: none;
+            }
+
+            .impacto__metric-value {
+                font-size: 18px;
+            }
+
+            .impacto__metric-label {
+                font-size: 7px;
+            }
+
+            /* ---- INVESTIMENTO ---- */
+            .invest__price {
+                font-size: clamp(36px, 10vw, 60px);
+            }
+
+            .invest__price-sub {
+                font-size: 10px;
+            }
+
+            .invest__compare {
+                margin: 32px 0;
+            }
+
+            .invest__card {
+                padding: 24px 18px;
+            }
+
+            .invest__card-title {
+                font-size: 14px;
+            }
+
+            .invest__card-price {
+                font-size: 18px;
+            }
+
+            .invest__scarcity-badge {
+                font-size: 8px;
+                padding: 10px 16px;
+            }
+
+            /* ---- FAQ ---- */
+            .faq__list {
+                margin-top: 32px;
+            }
+
+            .faq-item__question {
+                padding: 18px 20px;
+                font-size: 13px;
+            }
+
+            .faq-item__answer-inner {
+                padding: 0 20px 18px;
+                font-size: 12px;
+            }
+
+            /* ---- CTA ---- */
+            .cta__content {
+                min-height: 70vh;
+            }
+
+            .cta__button {
+                width: 100%;
+                justify-content: center;
+                padding: 18px 24px;
+                font-size: 12px;
+            }
+
+            .cta__button::before {
+                inset: -3px;
             }
 
             .cta__checks {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
+                gap: 12px;
             }
 
-            .grid-overlay {
-                display: none;
+            .cta__check {
+                font-size: 11px;
+            }
+
+            .cta__urgency {
+                font-size: 8px;
+                padding: 8px 14px;
+            }
+
+            /* ---- CRÉDITOS ---- */
+            .creditos__content {
+                min-height: 60vh;
+                padding-bottom: 40px;
+            }
+
+            .creditos__title {
+                font-size: 15px;
+            }
+
+            .creditos__scope {
+                font-size: 10px;
+            }
+
+            .creditos__designer {
+                font-size: 10px;
+            }
+
+            /* ---- TYPOGRAPHY mobile overrides ---- */
+            .headline {
+                font-size: clamp(22px, 6vw, 36px);
+            }
+
+            .display {
+                font-size: clamp(32px, 10vw, 64px);
+            }
+
+            .subheadline {
+                font-size: clamp(13px, 3.5vw, 16px);
+            }
+
+            .eyebrow {
+                font-size: 8px;
+                letter-spacing: 0.3em;
+                margin-bottom: 14px;
+            }
+
+            .eyebrow::before {
+                width: 24px;
             }
         }
 
-        @media (max-width: 576px) {
-            .cta__button {
-                width: 100%;
+        /* ============================================
+   RESPONSIVE — 480px (SMALL PHONES)
+   ============================================ */
+        @media (max-width: 480px) {
+            .section__content {
+                padding: 48px 16px 64px;
+            }
+
+            .capa__title {
+                font-size: clamp(30px, 9vw, 44px);
+            }
+
+            .capa__layout h1 img {
+                max-width: 240px !important;
+            }
+
+            .capa__bio {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .capa__pills {
                 justify-content: center;
-                padding: 20px 24px;
+            }
+
+            .headline {
+                font-size: clamp(20px, 5.5vw, 30px);
+            }
+
+            .impacto__quote {
+                font-size: clamp(20px, 6vw, 36px);
+            }
+
+            .invest__price {
+                font-size: clamp(32px, 9vw, 48px);
+            }
+
+            .invest__price-sub {
+                font-size: 9px;
+                letter-spacing: 0.05em;
+            }
+
+            .case-card__metric {
+                font-size: 28px;
+            }
+
+            .jornada-step__number {
+                font-size: 28px;
+            }
+
+            .modulo-card__number {
+                font-size: 28px;
+            }
+
+            .mobile-cta-float {
+                font-size: 11px;
+                padding: 12px 16px;
             }
         }
 
+        /* ============================================
+   REDUCED MOTION
+   ============================================ */
         @media (prefers-reduced-motion: reduce) {
 
             *,
@@ -2114,6 +2674,67 @@
         <button class="nav-dot" data-index="12" data-label="CRÉDITOS"></button>
     </nav>
 
+    <!-- MOBILE NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Navegação mobile">
+        <div class="mobile-nav__inner" id="mobileNavInner">
+            <button class="mobile-nav__dot active" data-index="0">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">CAPA</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="1">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">PROBLEMA</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="2">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">SOLUÇÃO</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="3">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">MÓDULOS</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="4">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">CASES</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="5">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">JORNADA</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="6">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">ENTREGAS</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="7">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">ANTES/DEPOIS</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="8">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">IMPACTO</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="9">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">INVEST.</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="10">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">FAQ</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="11">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">CTA</span>
+            </button>
+            <button class="mobile-nav__dot" data-index="12">
+                <span class="mobile-nav__dot-pip"></span>
+                <span class="mobile-nav__dot-label">CRÉDITOS</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE FLOATING CTA -->
+    <a href="#agendar" class="mobile-cta-float" id="mobileCta">AGENDAR DIAGNÓSTICO →</a>
+
     <div class="counter"><span id="counterCurrent">01</span> / 13</div>
 
     <div class="scroll-hint" id="scrollHint">
@@ -2137,7 +2758,8 @@
                     <div class="capa__stamp reveal">ABR.2026 — BRASÍLIA, DF</div>
                     <div class="eyebrow eyebrow--orange reveal reveal-delay-1">MENTORIA B2B — TIMES COMERCIAIS</div>
                     <h1 class="reveal reveal-delay-2" style="margin-bottom: 32px;">
-                        <img src="logo.png" alt="O Protocolo Comercial" style="max-width: 480px; width: 100%; height: auto; display: block;">
+                        <img src="logo.png" alt="O Protocolo Comercial"
+                            style="max-width: 480px; width: 100%; height: auto; display: block;">
                     </h1>
                     <p class="capa__sub reveal reveal-delay-3">O sistema que transforma times comerciais B2B em máquinas
                         de fechamento.</p>
@@ -2493,7 +3115,8 @@
             <div class="cases__grid">
                 <div class="case-card reveal reveal-delay-2">
                     <div class="case-card__photo">
-                        <img src="logo tanaporta.webp" alt="Ta Na Porta" loading="lazy" style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                        <img src="logo tanaporta.webp" alt="Ta Na Porta" loading="lazy"
+                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -2509,7 +3132,8 @@
                 </div>
                 <div class="case-card reveal reveal-delay-3">
                     <div class="case-card__photo">
-                        <img src="logo delivet.png" alt="DeliVet" loading="lazy" style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                        <img src="logo delivet.png" alt="DeliVet" loading="lazy"
+                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -2524,7 +3148,8 @@
                 </div>
                 <div class="case-card reveal reveal-delay-4">
                     <div class="case-card__photo">
-                        <img src="logo mellhoraumigo.png" alt="Melhor Amigo Petshop" loading="lazy" style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                        <img src="logo mellhoraumigo.png" alt="Melhor Amigo Petshop" loading="lazy"
+                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -2979,7 +3604,8 @@
         <div class="section__content">
             <div class="creditos__content">
                 <div class="creditos__avatar reveal">
-                    <img src="felipe avatar.jpg" alt="Felipe Cafu" style="width:100%;height:100%;object-fit:cover;filter:grayscale(1);border-radius:0;">
+                    <img src="felipe avatar.jpg" alt="Felipe Cafu"
+                        style="width:100%;height:100%;object-fit:cover;filter:grayscale(1);border-radius:0;">
                 </div>
                 <div class="creditos__title reveal reveal-delay-1">O Protocolo Comercial · Felipe Cafu</div>
                 <div class="creditos__scope reveal reveal-delay-2">Identidade Visual · Apresentação Interativa · UX
@@ -3083,10 +3709,30 @@
             // ---- SECTIONS & NAV ----
             const sections = document.querySelectorAll('.section');
             const dots = document.querySelectorAll('.nav-dot');
+            const mobileDots = document.querySelectorAll('.mobile-nav__dot');
+            const mobileNavInner = document.getElementById('mobileNavInner');
+            const mobileCta = document.getElementById('mobileCta');
             const counter = document.getElementById('counterCurrent');
             const scrollHint = document.getElementById('scrollHint');
             const counterEl = document.querySelector('.counter');
             let currentIndex = 0;
+            const isMobile = () => window.innerWidth <= 768;
+
+            // Show/hide mobile floating CTA based on scroll position
+            let mobileCtaShown = false;
+            function updateMobileCta(idx) {
+                if (!mobileCta) return;
+                // Show CTA after first section, hide on CTA and credits sections
+                if (idx >= 1 && idx < 11) {
+                    if (!mobileCtaShown) {
+                        mobileCtaShown = true;
+                        mobileCta.classList.add('visible');
+                    }
+                } else {
+                    mobileCtaShown = false;
+                    mobileCta.classList.remove('visible');
+                }
+            }
 
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -3096,6 +3742,7 @@
                         currentIndex = idx;
                         counter.textContent = String(idx + 1).padStart(2, '0');
 
+                        // Desktop nav dots
                         dots.forEach(dot => {
                             dot.classList.remove('active', 'active-light');
                             if (parseInt(dot.dataset.index) === idx) {
@@ -3103,16 +3750,45 @@
                             }
                         });
 
+                        // Mobile nav dots
+                        mobileDots.forEach(dot => {
+                            dot.classList.remove('active');
+                            if (parseInt(dot.dataset.index) === idx) {
+                                dot.classList.add('active');
+                                // Auto-scroll mobile nav to active dot
+                                if (mobileNavInner && isMobile()) {
+                                    const dotLeft = dot.offsetLeft;
+                                    const navWidth = mobileNavInner.offsetWidth;
+                                    const dotWidth = dot.offsetWidth;
+                                    mobileNavInner.scrollTo({
+                                        left: dotLeft - (navWidth / 2) + (dotWidth / 2),
+                                        behavior: 'smooth'
+                                    });
+                                }
+                            }
+                        });
+
                         counterEl.classList.toggle('light', theme === 'light');
                         entry.target.classList.add('in-view');
                         if (idx > 0 && scrollHint) scrollHint.classList.add('hidden');
+
+                        // Update mobile floating CTA
+                        if (isMobile()) updateMobileCta(idx);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: isMobile() ? 0.3 : 0.5 });
 
             sections.forEach(s => sectionObserver.observe(s));
 
+            // Desktop nav clicks
             dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    sections[parseInt(dot.dataset.index)].scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Mobile nav clicks
+            mobileDots.forEach(dot => {
                 dot.addEventListener('click', () => {
                     sections[parseInt(dot.dataset.index)].scrollIntoView({ behavior: 'smooth' });
                 });
@@ -3135,8 +3811,9 @@
                 });
             });
 
-            // ---- KEYBOARD ----
+            // ---- KEYBOARD (desktop only) ----
             document.addEventListener('keydown', (e) => {
+                if (isMobile()) return;
                 if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
                     e.preventDefault();
                     sections[Math.min(currentIndex + 1, sections.length - 1)].scrollIntoView({ behavior: 'smooth' });
@@ -3147,16 +3824,18 @@
                 }
             });
 
-            // ---- TOUCH ----
-            let touchStartY = 0;
-            document.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
-            document.addEventListener('touchend', (e) => {
-                const diff = touchStartY - e.changedTouches[0].clientY;
-                if (Math.abs(diff) > 60) {
-                    const t = diff > 0 ? Math.min(currentIndex + 1, sections.length - 1) : Math.max(currentIndex - 1, 0);
-                    sections[t].scrollIntoView({ behavior: 'smooth' });
-                }
-            }, { passive: true });
+            // ---- TOUCH (only snap on desktop, free scroll on mobile) ----
+            if (!isMobile()) {
+                let touchStartY = 0;
+                document.addEventListener('touchstart', (e) => { touchStartY = e.touches[0].clientY; }, { passive: true });
+                document.addEventListener('touchend', (e) => {
+                    const diff = touchStartY - e.changedTouches[0].clientY;
+                    if (Math.abs(diff) > 60) {
+                        const t = diff > 0 ? Math.min(currentIndex + 1, sections.length - 1) : Math.max(currentIndex - 1, 0);
+                        sections[t].scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, { passive: true });
+            }
 
         })();
     </script>
