@@ -2758,7 +2758,7 @@
                     <div class="capa__stamp reveal">ABR.2026 — BRASÍLIA, DF</div>
                     <div class="eyebrow eyebrow--orange reveal reveal-delay-1">MENTORIA B2B — TIMES COMERCIAIS</div>
                     <h1 class="reveal reveal-delay-2" style="margin-bottom: 32px;">
-                        <img src="logo.png" alt="O Protocolo Comercial"
+                        <img class="capa-logo" src="logo.png" alt="O Protocolo Comercial"
                             style="max-width: 480px; width: 100%; height: auto; display: block;">
                     </h1>
                     <p class="capa__sub reveal reveal-delay-3">O sistema que transforma times comerciais B2B em máquinas
@@ -3809,6 +3809,19 @@
                     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
                     if (!isOpen) item.classList.add('open');
                 });
+            });
+
+            // ---- LOGO TOGGLE (key C cycles: LOGO1 -> LOGO2 -> logo.png -> LOGO1) ----
+            const logoOptions = ['LOGO1.png', 'LOGO2.png', 'LOGO3.png', 'LOGO4.png', 'logo.png'];
+            let logoIndex = 0;
+            document.addEventListener('keydown', (e) => {
+                if ((e.key === 'c' || e.key === 'C') && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                    if (!document.activeElement || !['INPUT','TEXTAREA','SELECT','BUTTON'].includes(document.activeElement.tagName)) {
+                        e.preventDefault();
+                        logoIndex = (logoIndex + 1) % logoOptions.length;
+                        document.querySelectorAll('img.capa-logo').forEach(img => img.src = logoOptions[logoIndex]);
+                    }
+                }
             });
 
             // ---- KEYBOARD (desktop only) ----
