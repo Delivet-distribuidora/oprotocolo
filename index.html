@@ -272,6 +272,11 @@
             transform: scale(1.0);
         }
 
+        /* Ajuste para evitar texto sobre o rosto no PC */
+        .section[data-index="8"] .section__bg img {
+            object-position: 80% center;
+        }
+
         .section__overlay {
             position: absolute;
             inset: 0;
@@ -2203,6 +2208,17 @@
                 object-position: 58% 25%;
             }
 
+            /* Centralizar Felipe: Seções com ele na direita (Impacto, Transformação) */
+            .section[data-index="8"] .section__bg img,
+            .section[data-index="7"] .section__bg img {
+                object-position: 85% center;
+            }
+
+            /* Centralizar Felipe: Seção com ele na esquerda (Créditos) */
+            .section[data-index="12"] .section__bg img {
+                object-position: 35% center;
+            }
+
             /* ---- CAPA ---- */
             .capa__title {
                 font-size: clamp(36px, 10vw, 52px);
@@ -2992,7 +3008,7 @@
      ================================================ -->
     <section class="section section--light" data-index="3" data-theme="light">
         <div class="section__bg">
-            <img src="bg-modulos.png" alt="Felipe Cafu - apresentação" loading="lazy">
+            <!-- <img src="bg-modulos.png" alt="Felipe Cafu - apresentação" loading="lazy"> -->
         </div>
         <div class="section__overlay"></div>
         <div class="section__content">
@@ -3116,7 +3132,7 @@
                 <div class="case-card reveal reveal-delay-2">
                     <div class="case-card__photo">
                         <img src="logo tanaporta.webp" alt="Ta Na Porta" loading="lazy"
-                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                            style="object-fit: contain; padding: 20px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -3133,7 +3149,7 @@
                 <div class="case-card reveal reveal-delay-3">
                     <div class="case-card__photo">
                         <img src="logo delivet.png" alt="DeliVet" loading="lazy"
-                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                            style="object-fit: contain; padding: 35px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -3149,7 +3165,7 @@
                 <div class="case-card reveal reveal-delay-4">
                     <div class="case-card__photo">
                         <img src="logo mellhoraumigo.png" alt="Melhor Amigo Petshop" loading="lazy"
-                            style="object-fit: contain; padding: 30px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
+                            style="object-fit: contain; padding: 35px; width: 100%; height: 100%; filter: brightness(0) invert(1);">
                         <div class="case-card__badge"><span class="icon icon--sm"><svg viewBox="0 0 24 24">
                                     <circle cx="12" cy="12" r="10" />
                                     <polyline points="12 6 12 12 16 14" />
@@ -3171,7 +3187,7 @@
      ================================================ -->
     <section class="section section--dark" data-index="5" data-theme="dark">
         <div class="section__bg">
-            <img src="bg-jornada.png" alt="Felipe Cafu - em movimento" loading="lazy">
+            <!-- <img src="bg-jornada.png" alt="Felipe Cafu - em movimento" loading="lazy"> -->
         </div>
         <div class="section__overlay"></div>
         <div class="section__content">
@@ -3409,7 +3425,7 @@
      ================================================ -->
     <section class="section section--light" data-index="9" data-theme="light">
         <div class="section__bg">
-            <img src="bg-investimento.png" alt="Felipe Cafu - reunião" loading="lazy">
+            <!-- <img src="bg-investimento.png" alt="Felipe Cafu - reunião" loading="lazy"> -->
         </div>
         <div class="section__overlay"></div>
         <div class="section__content">
@@ -3551,7 +3567,7 @@
      ================================================ -->
     <section class="section section--hero" data-index="11" data-theme="dark">
         <div class="section__bg">
-            <img src="bg-cta.png" alt="Felipe Cafu - olhando para câmera" loading="lazy">
+            <!-- <img src="bg-cta.png" alt="Felipe Cafu - olhando para câmera" loading="lazy"> -->
         </div>
         <div class="section__overlay"></div>
         <div class="section__content">
