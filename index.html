@@ -560,8 +560,8 @@
 
         .counter {
             position: fixed;
-            left: 20px;
-            bottom: 20px;
+            right: 68px;
+            top: 24px;
             z-index: 1000;
             font-family: var(--font-mono);
             font-size: 11px;
@@ -963,6 +963,12 @@
             align-items: center;
         }
 
+        .solucao__layout-text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
         .solucao__pilares {
             display: flex;
             flex-direction: column;
@@ -1063,9 +1069,20 @@
 
         .modulos__grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 2px;
             margin-top: 48px;
+        }
+
+        .modulo-card--featured {
+            grid-column: span 4;
+            background: var(--bg);
+            border: 1px solid var(--orange);
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            transition: all 0.3s ease;
         }
 
         .modulo-card {
@@ -1102,7 +1119,7 @@
             font-family: var(--font-display);
             font-size: 48px;
             font-weight: 700;
-            color: rgba(0, 0, 0, 0.04);
+            color: rgba(0, 0, 0, 0.12);
             line-height: 1;
             margin-bottom: 8px;
         }
@@ -1583,7 +1600,7 @@
         }
 
         .invest__card--featured .invest__card-detail {
-            color: var(--gray-200);
+            color: rgba(255, 255, 255, 0.85);
         }
 
         .invest__card-badge {
@@ -1635,6 +1652,7 @@
             font-weight: 700;
             font-size: 22px;
             margin-bottom: 8px;
+            color: var(--bg);
         }
 
         .invest__card-detail {
@@ -2067,6 +2085,7 @@
 
             .solucao__layout {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .solucao__photo-block {
@@ -2179,8 +2198,11 @@
             /* Counter repositioned for mobile */
             .counter {
                 font-size: 9px;
-                bottom: 64px;
-                left: 12px;
+                top: 20px;
+                right: 20px;
+                bottom: auto;
+                left: auto;
+                z-index: 1002;
             }
 
             /* Scroll hint */
@@ -2324,6 +2346,14 @@
                 grid-template-columns: 1fr;
                 gap: 0;
                 margin-top: 32px;
+            }
+
+            .modulo-card--featured {
+                grid-column: span 1;
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 32px 24px;
             }
 
             .modulo-card {
@@ -2687,7 +2717,6 @@
         <button class="nav-dot" data-index="9" data-label="INVESTIMENTO"></button>
         <button class="nav-dot" data-index="10" data-label="FAQ"></button>
         <button class="nav-dot" data-index="11" data-label="CTA"></button>
-        <button class="nav-dot" data-index="12" data-label="CRÉDITOS"></button>
     </nav>
 
     <!-- MOBILE NAVIGATION -->
@@ -2741,10 +2770,6 @@
                 <span class="mobile-nav__dot-pip"></span>
                 <span class="mobile-nav__dot-label">CTA</span>
             </button>
-            <button class="mobile-nav__dot" data-index="12">
-                <span class="mobile-nav__dot-pip"></span>
-                <span class="mobile-nav__dot-label">CRÉDITOS</span>
-            </button>
         </div>
     </nav>
 
@@ -2752,7 +2777,7 @@
     <a href="https://wa.me/556198687999?text=Quero%20saber%20mais%20sobre%20o%20Protocolo%20Comercial"
         class="mobile-cta-float" id="mobileCta" target="_blank" rel="noopener">AGENDAR DIAGNÓSTICO →</a>
 
-    <div class="counter"><span id="counterCurrent">01</span> / 13</div>
+    <div class="counter"><span id="counterCurrent">01</span> / 12</div>
 
     <div class="scroll-hint" id="scrollHint">
         <span>SCROLL</span>
@@ -2952,12 +2977,12 @@
             <div class="solucao__layout">
                 <div>
                     <div class="eyebrow eyebrow--orange reveal">A SOLUÇÃO</div>
-                    <h2 class="headline reveal reveal-delay-1"><span class="orange">O Protocolo</span> não é curso.<br>É
-                        um sistema operacional<br>para seu comercial.</h2>
-                    <p class="subheadline reveal reveal-delay-2" style="margin-top:20px;">Processo replicável. Equipe
-                        treinável. Resultados previsíveis. Em pouco tempo, seu time opera no piloto automático — com
-                        métricas, scripts, funis e cadência que funcionam sem você.</p>
-                    <div class="solucao__pilares reveal reveal-delay-3">
+                    <h2 class="headline reveal reveal-delay-1"><span class="orange">O Protocolo</span> não é curso. É um sistema operacional para seu comercial.</h2>
+                    <div class="solucao__layout-text">
+                        <p class="subheadline reveal reveal-delay-2">Processo replicável. Equipe
+                            treinável. Resultados previsíveis. Em pouco tempo, seu time opera no piloto automático — com
+                            métricas, scripts, funis e cadência que funcionam sem você.</p>
+                        <div class="solucao__pilares reveal reveal-delay-3">
                         <div class="pilar">
                             <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
                                         <circle cx="12" cy="12" r="3" />
@@ -3014,9 +3039,8 @@
         <div class="section__overlay"></div>
         <div class="section__content">
             <div class="eyebrow eyebrow--dark reveal">O SISTEMA</div>
-            <h2 class="headline reveal reveal-delay-1">365 dias dentro<br>da sua <span class="orange">operação.</span>
-            </h2>
-            <div class="modulos__grid" style="grid-template-columns: repeat(4, 1fr);">
+            <h2 class="headline reveal reveal-delay-1">365 dias dentro da sua <span class="orange">operação.</span></h2>
+            <div class="modulos__grid">
                 <!-- 01 Funis Comerciais -->
                 <div class="modulo-card reveal reveal-delay-1">
                     <div class="modulo-card__number">01</div>
@@ -3107,8 +3131,7 @@
                     </div>
                 </div>
                 <!-- CARD FINAL — POSICIONAMENTO -->
-                <div class="modulo-card reveal reveal-delay-5"
-                    style="grid-column: span 4; background: var(--bg); border-color: var(--orange); padding: 36px 40px; display: flex; align-items: center; gap: 32px;">
+                <div class="modulo-card reveal reveal-delay-5 modulo-card--featured">
                     <div style="color: var(--orange); flex-shrink: 0;">
                         <span class="icon" style="width:48px;height:48px;"><svg viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="1.8">
@@ -3645,29 +3668,7 @@
         </div>
     </section>
 
-    <!-- ================================================
-     S12 — CRÉDITOS
-     ================================================ -->
-    <section class="section section--darker" data-index="12" data-theme="dark">
-        <div class="section__bg">
-            <img src="bg-creditos.png" alt="Felipe Cafu" loading="lazy">
-        </div>
-        <div class="section__overlay"></div>
-        <div class="section__content">
-            <div class="creditos__content">
-                <div class="creditos__avatar reveal">
-                    <img src="felipe avatar.jpg" alt="Felipe Cafu"
-                        style="width:100%;height:100%;object-fit:cover;filter:grayscale(1);border-radius:0;">
-                </div>
-                <div class="creditos__title reveal reveal-delay-1">O Protocolo Comercial · Felipe Cafu</div>
-                <div class="creditos__scope reveal reveal-delay-2">Identidade Visual · Apresentação Interativa · UX
-                    Strategy</div>
-                <div class="creditos__designer reveal reveal-delay-3">Design por <a href="https://rafarujo.design"
-                        target="_blank" rel="noopener">RAFARUJO</a></div>
-                <div class="creditos__year reveal reveal-delay-4">© 2026</div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- ============================================
      JAVASCRIPT
