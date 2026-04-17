@@ -1075,16 +1075,7 @@
             margin-top: 48px;
         }
 
-        .modulo-card--featured {
-            grid-column: span 4;
-            background: var(--bg);
-            border: 1px solid var(--orange);
-            padding: 36px 40px;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            transition: all 0.3s ease;
-        }
+
 
         .modulo-card {
             background: var(--white-pure);
@@ -1114,6 +1105,18 @@
         .modulo-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        .modulo-card--featured {
+            grid-column: span 4;
+            background: var(--bg) !important;
+            border: 1px solid var(--orange);
+            padding: 36px 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            transition: all 0.3s ease;
+            color: var(--white);
         }
 
         .modulo-card__number {
@@ -2941,7 +2944,7 @@
                         <div class="dor-card__number">05</div>
                     </div>
                     <div class="dor-card__title">Leads desperdiçados</div>
-                    <div class="dor-card__desc">Gasta fortunas em tráfego e não faz follow-up.</div>
+                    <div class="dor-card__desc">Gasta muito em tráfego e não faz follow-up.</div>
                     <div class="dor-card__cost"><span class="icon icon--sm" style="color:var(--orange)"><svg
                                 viewBox="0 0 24 24">
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -2978,56 +2981,57 @@
             <div class="solucao__layout">
                 <div>
                     <div class="eyebrow eyebrow--orange reveal">A SOLUÇÃO</div>
-                    <h2 class="headline reveal reveal-delay-1"><span class="orange">O Protocolo</span> não é curso. É um sistema operacional para seu comercial.</h2>
+                    <h2 class="headline reveal reveal-delay-1"><span class="orange">O Protocolo</span> não é curso. É um
+                        sistema operacional para seu comercial.</h2>
                     <div class="solucao__layout-text">
                         <p class="subheadline reveal reveal-delay-2">Processo replicável. Equipe
                             treinável. Resultados previsíveis. Em pouco tempo, seu time opera no piloto automático — com
                             métricas, scripts, funis e cadência que funcionam sem você.</p>
                         <div class="solucao__pilares reveal reveal-delay-3">
-                        <div class="pilar">
-                            <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
-                                        <circle cx="12" cy="12" r="3" />
-                                        <path
-                                            d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
-                                    </svg></span></div>
-                            <div>
-                                <div class="pilar__label">PROCESSO</div>
-                                <div class="pilar__desc">Funis documentados e replicáveis</div>
+                            <div class="pilar">
+                                <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
+                                            <circle cx="12" cy="12" r="3" />
+                                            <path
+                                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                                        </svg></span></div>
+                                <div>
+                                    <div class="pilar__label">PROCESSO</div>
+                                    <div class="pilar__desc">Funis documentados e replicáveis</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pilar">
-                            <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
-                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                        <circle cx="9" cy="7" r="4" />
-                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                    </svg></span></div>
-                            <div>
-                                <div class="pilar__label">PESSOAS</div>
-                                <div class="pilar__desc">Contratação, treinamento, retenção</div>
+                            <div class="pilar">
+                                <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                        </svg></span></div>
+                                <div>
+                                    <div class="pilar__label">PESSOAS</div>
+                                    <div class="pilar__desc">Contratação, treinamento, retenção</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="pilar">
-                            <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
-                                        <line x1="18" y1="20" x2="18" y2="10" />
-                                        <line x1="12" y1="20" x2="12" y2="4" />
-                                        <line x1="6" y1="20" x2="6" y2="14" />
-                                    </svg></span></div>
-                            <div>
-                                <div class="pilar__label">PERFORMANCE</div>
-                                <div class="pilar__desc">Métricas, dashboards, escala</div>
+                            <div class="pilar">
+                                <div class="pilar__icon"><span class="icon icon--lg"><svg viewBox="0 0 24 24">
+                                            <line x1="18" y1="20" x2="18" y2="10" />
+                                            <line x1="12" y1="20" x2="12" y2="4" />
+                                            <line x1="6" y1="20" x2="6" y2="14" />
+                                        </svg></span></div>
+                                <div>
+                                    <div class="pilar__label">PERFORMANCE</div>
+                                    <div class="pilar__desc">Métricas, dashboards, escala</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="solucao__photo-block reveal reveal-delay-2">
-                    <div class="solucao__photo">
-                        <img src="felipe-acao.png" alt="Felipe Cafu em ação" loading="lazy">
+                    <div class="solucao__photo-block reveal reveal-delay-2">
+                        <div class="solucao__photo">
+                            <img src="felipe-acao.png" alt="Felipe Cafu em ação" loading="lazy">
+                        </div>
+                        <div class="solucao__photo-tag">EM OPERAÇÃO</div>
                     </div>
-                    <div class="solucao__photo-tag">EM OPERAÇÃO</div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- ================================================
@@ -3041,6 +3045,8 @@
         <div class="section__content">
             <div class="eyebrow eyebrow--dark reveal">O SISTEMA</div>
             <h2 class="headline reveal reveal-delay-1">365 dias dentro da sua <span class="orange">operação.</span></h2>
+            <p class="subheadline reveal reveal-delay-2" style="margin-top: 12px;">Quanto vale um time comercial
+                funcionar sem você?</p>
             <div class="modulos__grid">
                 <!-- 01 Funis Comerciais -->
                 <div class="modulo-card reveal reveal-delay-1">
@@ -3094,7 +3100,7 @@
                                     d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                             </svg></span></div>
                     <div class="modulo-card__title">Ferramentas de Gestão</div>
-                    <div class="modulo-card__desc">Implementação dos sistemas e dashboards certos para sua operação.
+                    <div class="modulo-card__desc">Implementação de Ferramentas de Gestão.
                     </div>
                 </div>
                 <!-- 06 Documentação -->
@@ -3373,7 +3379,7 @@
      ================================================ -->
     <section class="section section--dark" data-index="7" data-theme="dark">
         <div class="section__bg">
-            <img src="bg-transformacao.png" alt="Felipe Cafu - confiante" loading="lazy">
+            <img src="bg-solucao.png" alt="Felipe Cafu - transformação" loading="lazy">
         </div>
         <div class="section__overlay"></div>
         <div class="section__content">
@@ -3507,7 +3513,7 @@
                                 <circle cx="12" cy="7" r="4" />
                             </svg></span></div>
                     <div class="invest__card-title">Closer sênior</div>
-                    <div class="invest__card-price">R$10.000/mês</div>
+                    <div class="invest__card-price">5k/mês</div>
                     <div class="invest__card-detail">+ comissão<br>3–6 meses ramp-up<br><span
                             style="color:var(--orange);">1 pessoa, não um sistema</span></div>
                 </div>
@@ -3519,7 +3525,7 @@
                             </svg></span></div>
                     <div class="invest__card-title">Fazer sozinho</div>
                     <div class="invest__card-price">Seu tempo</div>
-                    <div class="invest__card-detail">+ tentativa e erro<br>12–18 meses<br><span
+                    <div class="invest__card-detail">+ tentativa e erro<br>1 ano<br><span
                             style="color:var(--orange);">Sem garantia</span></div>
                 </div>
                 <div class="invest__card invest__card--featured reveal reveal-delay-5">
@@ -3809,14 +3815,16 @@
                             dot.classList.remove('active');
                             if (parseInt(dot.dataset.index) === idx) {
                                 dot.classList.add('active');
-                                // Auto-scroll mobile nav to active dot
+                                // Auto-scroll mobile nav to active dot (throttled/optimized)
                                 if (mobileNavInner && isMobile()) {
-                                    const dotLeft = dot.offsetLeft;
-                                    const navWidth = mobileNavInner.offsetWidth;
-                                    const dotWidth = dot.offsetWidth;
-                                    mobileNavInner.scrollTo({
-                                        left: dotLeft - (navWidth / 2) + (dotWidth / 2),
-                                        behavior: 'smooth'
+                                    requestAnimationFrame(() => {
+                                        const dotLeft = dot.offsetLeft;
+                                        const navWidth = mobileNavInner.clientWidth;
+                                        const dotWidth = dot.clientWidth;
+                                        mobileNavInner.scrollTo({
+                                            left: dotLeft - (navWidth / 2) + (dotWidth / 2),
+                                            behavior: 'smooth'
+                                        });
                                     });
                                 }
                             }
